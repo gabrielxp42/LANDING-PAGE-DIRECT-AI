@@ -431,6 +431,30 @@
             let lastScrollY = window.scrollY;
             let scrollVelocity = 0;
 
+            // --- SMOOTH SCROLL DAMPING ---
+            let targetScrollY = window.scrollY;
+            let currentScrollY = window.scrollY;
+            const scrollEase = 0.08;
+            let isMoving = false;
+
+            window.addEventListener('wheel', (e) => {
+                // If modal is open, don't hijack scroll
+                if (document.body.style.overflow === 'hidden') return;
+
+                e.preventDefault();
+                targetScrollY += e.deltaY * 0.85; // Slight limiter for more control
+                targetScrollY = Math.max(0, Math.min(targetScrollY, document.documentElement.scrollHeight - window.innerHeight));
+                isMoving = true;
+            }, { passive: false });
+
+            window.addEventListener('keydown', (e) => {
+                const step = 100;
+                if (e.key === 'ArrowDown') { targetScrollY += step; isMoving = true; }
+                if (e.key === 'ArrowUp') { targetScrollY -= step; isMoving = true; }
+                if (e.key === ' ') { targetScrollY += window.innerHeight * 0.5; isMoving = true; }
+                targetScrollY = Math.max(0, Math.min(targetScrollY, document.documentElement.scrollHeight - window.innerHeight));
+            });
+
             function resize() {
                 canvas.width = 1000;
                 canvas.height = 1000;
@@ -486,6 +510,16 @@
 
             function animate() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Process Smooth Scroll
+                if (isMoving) {
+                    currentScrollY += (targetScrollY - currentScrollY) * scrollEase;
+                    window.scrollTo(0, currentScrollY);
+                    if (Math.abs(targetScrollY - currentScrollY) < 0.5) {
+                        isMoving = false;
+                    }
+                }
+
                 const sX = canvas.width / 2;
                 const sY = canvas.height / 2;
 
@@ -503,7 +537,11 @@
                     pulse.style.transform = "translate(-50%, -50%) scale(" + pS + ")";
                 }
 
-                scrollVelocity *= 0.94;
+                // Restore velocity tracking
+                const currentActual = window.scrollY;
+                scrollVelocity = currentActual - lastScrollY;
+                lastScrollY = currentActual;
+
                 requestAnimationFrame(animate);
             }
 
