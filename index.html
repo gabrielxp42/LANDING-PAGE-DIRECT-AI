@@ -431,29 +431,12 @@
             let lastScrollY = window.scrollY;
             let scrollVelocity = 0;
 
-            // --- SMOOTH SCROLL DAMPING ---
-            let targetScrollY = window.scrollY;
-            let currentScrollY = window.scrollY;
-            const scrollEase = 0.08;
-            let isMoving = false;
+            // --- SMOOTH ANIMATION PROGRESS ---
+            let visualProgress = 0;
+            const progressEase = 0.08;
+            const isMobile = window.innerWidth <= 992;
 
-            window.addEventListener('wheel', (e) => {
-                // If modal is open, don't hijack scroll
-                if (document.body.style.overflow === 'hidden') return;
 
-                e.preventDefault();
-                targetScrollY += e.deltaY * 0.85; // Slight limiter for more control
-                targetScrollY = Math.max(0, Math.min(targetScrollY, document.documentElement.scrollHeight - window.innerHeight));
-                isMoving = true;
-            }, { passive: false });
-
-            window.addEventListener('keydown', (e) => {
-                const step = 100;
-                if (e.key === 'ArrowDown') { targetScrollY += step; isMoving = true; }
-                if (e.key === 'ArrowUp') { targetScrollY -= step; isMoving = true; }
-                if (e.key === ' ') { targetScrollY += window.innerHeight * 0.5; isMoving = true; }
-                targetScrollY = Math.max(0, Math.min(targetScrollY, document.documentElement.scrollHeight - window.innerHeight));
-            });
 
             function resize() {
                 canvas.width = 1000;
@@ -511,13 +494,37 @@
             function animate() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-                // Process Smooth Scroll
-                if (isMoving) {
-                    currentScrollY += (targetScrollY - currentScrollY) * scrollEase;
-                    window.scrollTo(0, currentScrollY);
-                    if (Math.abs(targetScrollY - currentScrollY) < 0.5) {
-                        isMoving = false;
+                // Track actual scroll velocity for animations
+                const currentActual = window.scrollY;
+                scrollVelocity = currentActual - lastScrollY;
+                lastScrollY = currentActual;
+
+                // Smoothly update visualProgress towards actual scroll
+                if (aiSection) {
+                    const rect = (isMobile ? document.querySelector('.ai-core-visual') : aiSection).getBoundingClientRect();
+                    const viewHeight = window.innerHeight;
+
+                    let targetProg;
+                    if (isMobile) {
+                        const sectionEntry = rect.top - viewHeight;
+                        const sectionHeight = rect.height;
+                        targetProg = Math.max(0, Math.min(1, -sectionEntry / sectionHeight));
+                    } else {
+                        targetProg = Math.max(0, Math.min(1, (viewHeight - rect.top) / rect.height));
                     }
+
+                    // Ease the visual progress
+                    visualProgress += (targetProg - visualProgress) * (isMobile ? 0.25 : 0.08);
+
+                    // Update bubbles based on visualProgress
+                    bubbles.forEach((bubble) => {
+                        const revealAt = parseFloat(bubble.getAttribute('data-scroll-reveal')) * (isMobile ? 0.18 : 0.2);
+                        if (visualProgress > revealAt) {
+                            bubble.classList.add('visible');
+                        } else {
+                            bubble.classList.remove('visible');
+                        }
+                    });
                 }
 
                 const sX = canvas.width / 2;
@@ -537,54 +544,11 @@
                     pulse.style.transform = "translate(-50%, -50%) scale(" + pS + ")";
                 }
 
-                // Restore velocity tracking
-                const currentActual = window.scrollY;
-                scrollVelocity = currentActual - lastScrollY;
-                lastScrollY = currentActual;
-
                 requestAnimationFrame(animate);
             }
 
             const bubbles = document.querySelectorAll('.gabi-bubble');
             const aiSection = document.getElementById('agente-ia');
-
-            window.addEventListener('scroll', () => {
-                const current = window.scrollY;
-                scrollVelocity = current - lastScrollY;
-                lastScrollY = current;
-
-                // Bubble Reveal Logic
-                if (aiSection) {
-                    const isMobile = window.innerWidth <= 992;
-                    const triggerEl = isMobile ? document.querySelector('.ai-core-visual') : aiSection;
-
-                    if (triggerEl) {
-                        const rect = triggerEl.getBoundingClientRect();
-                        const viewHeight = window.innerHeight;
-
-                        // Progress calculation: 
-                        // Desktop: based on section height (sticky)
-                        // Mobile: based on the section scroll progress to reveal bubbles sequentially
-                        let progress;
-                        if (isMobile) {
-                            const sectionEntry = rect.top - viewHeight;
-                            const sectionHeight = rect.height;
-                            progress = Math.max(0, Math.min(1, -sectionEntry / sectionHeight));
-                        } else {
-                            progress = Math.max(0, Math.min(1, (viewHeight - rect.top) / rect.height));
-                        }
-
-                        bubbles.forEach((bubble) => {
-                            const revealAt = parseFloat(bubble.getAttribute('data-scroll-reveal')) * (isMobile ? 0.18 : 0.2);
-                            if (progress > revealAt) {
-                                bubble.classList.add('visible');
-                            } else {
-                                bubble.classList.remove('visible');
-                            }
-                        });
-                    }
-                }
-            });
 
             // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
