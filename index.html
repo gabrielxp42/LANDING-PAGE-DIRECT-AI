@@ -3,18 +3,39 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Direct AI - Inteligência Artificial para DTF & Gráficas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct AI - A Primeira IA Gerente de Gráficas do Mundo</title>
     <meta name="description"
         content="Automatize seu negócio com a Direct AI. Inteligência artificial avançada para gestão de pedidos DTF, clientes e produção.">
+
+    <!-- SEO & Social Share (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://direct-ai-dun.vercel.app">
+    <meta property="og:title" content="Direct AI - Sua Gráfica no Piloto Automático">
+    <meta property="og:description"
+        content="Automatize pedidos, cobranças e produção com a Gabi, a IA especializada em gráficas DTF.">
+    <meta property="og:image" content="https://direct-ai-dun.vercel.app/logo.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://direct-ai-dun.vercel.app">
+    <meta property="twitter:title" content="Direct AI - Sua Gráfica no Piloto Automático">
+    <meta property="twitter:description"
+        content="Automatize pedidos, cobranças e produção com a Gabi, a IA especializada em gráficas DTF.">
+    <meta property="twitter:image" content="https://direct-ai-dun.vercel.app/logo.png">
+
+    <!-- Cache Control - Aggressive Reset -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20240116_1755">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -37,10 +58,10 @@
                 <a href="#solucao">Soluções</a>
                 <a href="#comparativo">AI vs Planilha</a>
                 <a href="https://direct-ai-dun.vercel.app/login" class="btn btn-outline">Entrar</a>
-                <button class="btn btn-primary open-subscription-modal">Começar Trial</button>
+                <a href="https://direct-ai-dun.vercel.app/checkout" class="btn btn-primary">Assinar Agora</a>
             </div>
             <div class="mobile-actions">
-                <a href="https://direct-ai-dun.vercel.app/login" class="mobile-login-btn">
+                <a href="https://direct-ai-dun.vercel.app" class="mobile-login-btn">
                     <i data-lucide="user"></i>
                 </a>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -59,14 +80,14 @@
                 </div>
                 <h1>Pare de <span class="text-gradient">Rasgar Dinheiro</span> com a Desorganização da sua Gráfica DTF
                 </h1>
-                <p>O único sistema com Inteligência Artificial especializado em DTF que organiza seus pedidos, calcula
-                    seus metros lineares e cobra seus clientes automaticamente. Chega de sofrer com planilhas de filme.
+                <p>O único sistema com Inteligência Artificial especializado em DTF. Uma funcionária que não dorme, não
+                    erra e organiza sua produção, metros lineares e cobranças automaticamente.
                 </p>
                 <div class="hero-actions">
-                    <button class="btn btn-lg btn-primary open-subscription-modal">
+                    <a href="https://direct-ai-dun.vercel.app/checkout" class="btn btn-lg btn-primary">
                         RECUPERAR MEU LUCRO NO DTF
                         <i data-lucide="zap"></i>
-                    </button>
+                    </a>
                     <a href="#comparativo" class="btn btn-lg btn-ghost">Adeus Planilhas</a>
                 </div>
                 <div class="hero-stats">
@@ -176,8 +197,8 @@
                         </div>
                     </div>
                     <div class="ai-cta">
-                        <button class="btn btn-lg btn-primary open-subscription-modal">EU PRECISO DA
-                            GABI NO MEU TIME</button>
+                        <a href="https://direct-ai-dun.vercel.app/checkout" class="btn btn-lg btn-primary">EU PRECISO DA
+                            GABI NO MEU TIME</a>
                     </div>
                 </div>
             </div>
@@ -261,9 +282,11 @@
                     </div>
 
                     <div class="calc-actions">
-                        <button class="btn btn-lg btn-primary open-subscription-modal">
-                            TESTAR CALCULADORA AGORA
+                        <button class="btn btn-lg btn-primary open-calculator-modal">
+                            TESTAR AGORA
+                            <i data-lucide="calculator"></i>
                         </button>
+
                     </div>
                 </div>
             </div>
@@ -302,8 +325,9 @@
                     <h2 class="section-title">Liberte-se do <span class="accent">Manual</span></h2>
                     <p class="section-subtitle">Sua IA processa pedidos por voz, identifica clientes e automatiza
                         cobranças. Pare de digitar e comece a escalar sua produção agora mesmo.</p>
-                    <button class="btn btn-primary btn-cta-inline open-subscription-modal">QUERO ESSA
-                        AGILIDADE</button>
+                    <a href="https://direct-ai-dun.vercel.app/checkout" class="btn btn-primary btn-cta-inline">QUERO
+                        ESSA
+                        AGILIDADE</a>
                 </div>
             </div>
         </div>
@@ -380,8 +404,9 @@
                 <p>Enquanto você perde tempo preenchendo planilhas, seus concorrentes usam a Gabi para faturar 3x mais.
                     Recupere sua paz e o controle do seu filme agora.</p>
                 <div class="cta-actions">
-                    <button class="btn btn-lg btn-primary open-subscription-modal">ASSUMIR O CONTROLE
-                        DO MEU DTF</button>
+                    <a href="https://direct-ai-dun.vercel.app/checkout" class="btn btn-lg btn-primary">ASSUMIR O
+                        CONTROLE
+                        DO MEU DTF</a>
                     <a href="https://wa.me/5521986243396" target="_blank" class="btn btn-lg btn-outline">Falar com
                         Consultor</a>
                 </div>
@@ -404,8 +429,238 @@
     </footer>
 
     <!-- Subscription Modal -->
+    <!-- DTF Calculator Modal -->
+    <div class="modal-overlay" id="calculatorModal">
+        <div class="calculator-modal glass-card">
+            <button class="modal-close" id="closeCalculatorModal">
+                <i data-lucide="x"></i>
+            </button>
+
+            <div class="calc-modal-content">
+                <!-- Top Sales Banner -->
+                <div class="calc-top-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge">OFERTA LIMITADA</span>
+                        <span class="banner-text">Pare de perder dinheiro! Organize seu DTF com IA por apenas R$
+                            97/mês</span>
+                    </div>
+                    <a href="https://direct-ai-dun.vercel.app/checkout" class="banner-cta">EU QUERO AGORA</a>
+                </div>
+
+                <div class="calc-main-split">
+                    <div class="calc-left">
+                        <div class="calc-header">
+                            <div class="calc-title">
+                                <i data-lucide="calculator" class="icon-yellow"></i>
+                                <div>
+                                    <h2>Calculadora DTF Pro</h2>
+                                    <p>Simulação técnica em tempo real</p>
+                                </div>
+                            </div>
+                            <div class="calc-ai-tips" id="calcAiTips">
+                                <i data-lucide="sparkles" class="h-3 w-3"></i>
+                                <span id="tipText">Carregando dicas da Gabi...</span>
+                            </div>
+                        </div>
+
+                        <!-- Mobile View Toggle (Only visible on mobile) -->
+                        <div class="mobile-view-toggle">
+                            <button class="view-btn active" data-view="edit">
+                                <i data-lucide="edit-3"></i> Editar
+                            </button>
+                            <button class="view-btn" data-view="preview">
+                                <i data-lucide="eye"></i> Visualizar
+                            </button>
+                        </div>
+
+                        <div class="calc-tabs">
+                            <button class="tab-btn active" data-mode="simple">
+                                <i data-lucide="layout-grid"></i> Item Único
+                            </button>
+                            <button class="tab-btn" data-mode="multi">
+                                <i data-lucide="layers"></i> Multi-Itens
+                            </button>
+                        </div>
+
+                        <div class="calc-form-scroll custom-scrollbar">
+                            <!-- Material Settings -->
+                            <div class="form-group">
+                                <label class="group-label">Configurações do Rolo</label>
+                                <div class="input-grid">
+                                    <div class="field">
+                                        <label>Largura do Rolo (cm)</label>
+                                        <div class="num-input-wrap">
+                                            <button class="ctrl-btn" data-action="minus" data-target="calcRollWidth"><i
+                                                    data-lucide="minus"></i></button>
+                                            <input type="number" id="calcRollWidth" value="58" min="20" max="120">
+                                            <button class="ctrl-btn" data-action="plus" data-target="calcRollWidth"><i
+                                                    data-lucide="plus"></i></button>
+                                        </div>
+                                        <div class="quick-btns">
+                                            <button class="q-btn" data-value="30">30cm</button>
+                                            <button class="q-btn active" data-value="58">58cm</button>
+                                        </div>
+                                    </div>
+                                    <div class="field" data-hover="margin">
+                                        <label>Margem (cm)</label>
+                                        <div class="num-input-wrap">
+                                            <button class="ctrl-btn" data-action="minus" data-target="calcMargin"><i
+                                                    data-lucide="minus"></i></button>
+                                            <input type="number" id="calcMargin" value="0.5" step="0.5" min="0"
+                                                max="10">
+                                            <button class="ctrl-btn" data-action="plus" data-target="calcMargin"><i
+                                                    data-lucide="plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="calcErrorAlert" class="calc-error-alert" style="display: none;">
+                                <i data-lucide="alert-circle"></i>
+                                <span>Logo mais larga que o rolo!</span>
+                            </div>
+
+                            <!-- Simple Mode Fields -->
+                            <div id="simpleModeFields">
+                                <div class="form-group">
+                                    <label class="group-label">Dimensões da Imagem</label>
+                                    <div class="input-grid">
+                                        <div class="field" data-hover="imageSize">
+                                            <label>Largura (cm)</label>
+                                            <div class="num-input-wrap">
+                                                <button class="ctrl-btn" data-action="minus"
+                                                    data-target="calcImgWidth"><i data-lucide="minus"></i></button>
+                                                <input type="number" id="calcImgWidth" value="10" step="0.5">
+                                                <button class="ctrl-btn" data-action="plus"
+                                                    data-target="calcImgWidth"><i data-lucide="plus"></i></button>
+                                            </div>
+                                        </div>
+                                        <div class="field" data-hover="imageSize">
+                                            <label>Altura (cm)</label>
+                                            <div class="num-input-wrap">
+                                                <button class="ctrl-btn" data-action="minus"
+                                                    data-target="calcImgHeight"><i data-lucide="minus"></i></button>
+                                                <input type="number" id="calcImgHeight" value="10" step="0.5">
+                                                <button class="ctrl-btn" data-action="plus"
+                                                    data-target="calcImgHeight"><i data-lucide="plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="group-label">Quantidade</label>
+                                    <div class="input-grid">
+                                        <div class="field" data-hover="quantity">
+                                            <div class="num-input-wrap">
+                                                <button class="ctrl-btn" data-action="minus"
+                                                    data-target="calcQuantity"><i data-lucide="minus"></i></button>
+                                                <input type="number" id="calcQuantity" value="10" min="1">
+                                                <button class="ctrl-btn" data-action="plus"
+                                                    data-target="calcQuantity"><i data-lucide="plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Multi Mode Fields -->
+                            <div id="multiModeFields" style="display: none;">
+                                <div class="multi-items-container" id="multiItemsList">
+                                    <!-- Multi items will be rendered here -->
+                                </div>
+                                <button class="btn btn-outline btn-sm w-full mt-2" id="addMultiItem">
+                                    <i data-lucide="plus"></i> Adicionar Outro Item
+                                </button>
+                            </div>
+
+                            <!-- Shared Footer Fields -->
+                            <div class="form-group pt-4 border-t border-white/10 mt-4">
+                                <div class="input-grid">
+                                    <div class="field" data-hover="separation">
+                                        <label>Espaçamento entre logos (cm)</label>
+                                        <div class="num-input-wrap">
+                                            <button class="ctrl-btn" data-action="minus" data-target="calcSeparation"
+                                                data-step="0.1"><i data-lucide="minus"></i></button>
+                                            <input type="number" id="calcSeparation" value="0.5" step="0.1" min="0">
+                                            <button class="ctrl-btn" data-action="plus" data-target="calcSeparation"
+                                                data-step="0.1"><i data-lucide="plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calc-results-footer">
+                            <div class="results-grid">
+                                <div class="result-card primary">
+                                    <span class="res-label">Metragem Total</span>
+                                    <span class="res-value" id="resTotalMeters">0.00m</span>
+                                </div>
+                                <div class="result-card secondary">
+                                    <span class="res-label" id="resSecondaryLabel">Logos por Metro</span>
+                                    <span class="res-value" id="resSecondaryValue">0 un</span>
+                                </div>
+                            </div>
+
+                            <div class="gabi-summary" id="gabiSummaryBox">
+                                <div class="gabi-icon">
+                                    <i data-lucide="bot"></i>
+                                </div>
+                                <div class="gabi-content">
+                                    <div class="gabi-title">Resumo da Gabi</div>
+                                    <div class="gabi-text" id="gabiSummaryText">
+                                        Calculando a melhor otimização para você...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-right">
+                        <div class="preview-container glass-card">
+                            <div class="calc-ruler-top">
+                                <div class="ruler-info">
+                                    <div class="pulse-dot"></div>
+                                    <span>Rolo Selecionado (cm)</span>
+                                </div>
+                                <div class="ruler-line-wrap">
+                                    <div class="ruler-value"><span id="rulerRollValue">58</span> CM</div>
+                                    <div class="ruler-line"></div>
+                                </div>
+                            </div>
+
+                            <div class="preview-scroll custom-scrollbar" id="previewContainer">
+                                <div id="perfWarning" class="perf-warning" style="display: none;">
+                                    <i data-lucide="zap"></i>
+                                    <span>Preview limitado a 200 itens para fluidez</span>
+                                </div>
+                                <div id="calcPaper" class="preview-paper">
+                                    <!-- Usable Area -->
+                                    <div id="calcUsableArea" class="usable-area">
+                                        <!-- Dynamic items will be rendered here -->
+                                    </div>
+
+                                    <!-- Margin Overlays -->
+                                    <div id="calcMarginLeft" class="margin-overlay left"></div>
+                                    <div id="calcMarginRight" class="margin-overlay right"></div>
+                                </div>
+                            </div>
+
+                            <div class="preview-legend">
+                                <div class="legend-item"><span class="dot yellow"></span> Logos</div>
+                                <div class="legend-item"><span class="dot emerald"></span> Margem</div>
+                                <div class="legend-item"><span class="dot purple"></span> Espaço (S)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Separate Subscription Modal -->
     <div class="modal-overlay" id="subscriptionModal">
-        <div class="subscription-modal">
+        <div class="subscription-modal glass-card">
             <button class="modal-close" id="closeModal">
                 <i data-lucide="x"></i>
             </button>
@@ -420,11 +675,11 @@
                     <span class="accent shimm-text">DINHEIRO</span>
                 </h2>
                 <div class="price-container">
-                    <span class="old-price">R$ 97/mês</span>
-                    <span class="new-price">R$ 47</span>
-                    <span class="price-meta">/mês • Cancele quando quiser</span>
+                    <span class="old-price">R$ 147/mês</span>
+                    <span class="new-price">R$ 97</span>
+                    <span class="price-meta">/mês • 7 dias de garantia total</span>
                 </div>
-                <a href="https://direct-ai-dun.vercel.app/login" class="modal-cta">
+                <a href="https://direct-ai-dun.vercel.app/checkout" class="modal-cta">
                     Quero Organizar Agora
                     <i data-lucide="arrow-right"></i>
                 </a>
@@ -465,7 +720,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20240116_1755"></script>
     <script>
         window.addEventListener('load', () => {
             lucide.createIcons();
